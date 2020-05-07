@@ -6,19 +6,19 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
+@EnableJpaAuditing
 @RequiredArgsConstructor
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
     //        System.out.println("Application.run");
-//        User user = new User();
-//        userRepository.save(user);
+
 
 //        User user = userRepository.findById(1).orElse(null);
 //        System.out.println("user = " + user);
@@ -42,24 +42,24 @@ public class Application implements CommandLineRunner {
 //        System.out.println("users = " + users);
 //    }
 
-//    @Override
-//    public void run(String... args) throws Exception {
-//        Date from = DateUtils.parseDate("2020-05-06 17:02:04.035", datePattern);
-//        Date to = DateUtils.parseDate("2020-05-06 17:02:04.035", datePattern);
-//        System.out.println("from = " + DateFormatUtils.format(from, datePattern));
-//        System.out.println("to = " + DateFormatUtils.format(to, datePattern));
-//        List<User> users = userRepository.findByCreatedDateBetween(from, to);
-//        System.out.println("users = " + users);
-//    }
-
     @Override
     public void run(String... args) throws Exception {
-        Date from = Date.from(Instant.ofEpochMilli(1588758973209L));
-        Date to = from;
-//        Date to = DateUtils.parseDate("2020-05-06 17:02:04.035", datePattern);
+        Date from = DateUtils.parseDate("2020-05-06 19:03:12.773", datePattern);
+        Date to = DateUtils.parseDate("2020-05-06 19:03:12.773", datePattern);
         System.out.println("from = " + DateFormatUtils.format(from, datePattern));
         System.out.println("to = " + DateFormatUtils.format(to, datePattern));
-        List<Client> clients = clientRepository.findByCreatedDateBetween(from, to);
-        System.out.println("clients = " + clients);
+        List<User> users = userRepository.findByCreatedDateBetween(from, to);
+        System.out.println("users = " + users);
     }
+
+//    @Override
+//    public void run(String... args) throws Exception {
+//        Date from = Date.from(Instant.ofEpochMilli(1588758973209L));
+//        Date to = from;
+////        Date to = DateUtils.parseDate("2020-05-06 17:02:04.035", datePattern);
+//        System.out.println("from = " + DateFormatUtils.format(from, datePattern));
+//        System.out.println("to = " + DateFormatUtils.format(to, datePattern));
+//        List<Client> clients = clientRepository.findByCreatedDateBetween(from, to);
+//        System.out.println("clients = " + clients);
+//    }
 }
