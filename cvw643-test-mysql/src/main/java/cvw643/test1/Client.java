@@ -1,4 +1,4 @@
-package cvw643;
+package cvw643.test1;
 
 import lombok.Getter;
 import lombok.Setter;

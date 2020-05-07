@@ -1,4 +1,4 @@
-package cvw643;
+package cvw643.test1;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

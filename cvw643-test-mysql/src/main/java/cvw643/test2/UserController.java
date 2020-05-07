@@ -1,4 +1,4 @@
-package cvw643;
+package cvw643.test2;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +14,6 @@ public class UserController {
 
     @PostMapping
     public User createUser(@RequestBody User user) {
-        user.setCreatedDate(null);
         user.setId(null);
         return userRepository.save(user);
     }
