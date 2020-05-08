@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -19,9 +20,13 @@ public abstract class BaseEntity {
     @Id
     private String id;
 
+    private String createdBy;
+
     @CreatedDate
     @Column(nullable = false, updatable = false, columnDefinition = "DATETIME(3)")
     private Date createdAt;
+
+    private String lastModifiedBy;
 
     @LastModifiedDate
     @Column(nullable = false, updatable = true, columnDefinition = "DATETIME(3)")
